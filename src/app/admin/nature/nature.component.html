@@ -1,0 +1,40 @@
+
+<div class="container">
+
+    <nav >
+      <ul class="pagination paginationUI">
+          <li class="page-item">
+              <a class="page-link" [ngClass]="{disabled: currentPage === 0}"  aria-label="Previous">
+                
+                <a  (click)="currentPage = currentPage - 1" class="sr-only"> Onceki </a>
+              </a>
+            </li>
+        <li class="page-item" 
+        [ngClass] ="{active : i == currentPage}"
+        *ngFor="let item of list let i = index ">  
+         
+            <a (click)="currentPage = i" *ngIf="i<20" class="page-link">{{i+1}}</a>
+        
+        </li>
+        <li class="page-item">
+          <a class="page-link"   [ngClass]="{disabled: currentPage === 0}"  aria-label="Next">
+         
+            <a (click)="currentPage = currentPage + 1" class="sr-only">Sonraki</a>
+          </a>
+        </li>
+       
+      </ul>
+    </nav>
+
+  
+  </div>
+    <div class="mainImg">
+       <h1 style="color:white"> {{ list[currentPage].title }} </h1>
+       
+       <img class="Img" [src]="list[currentPage].url ">
+  
+  </div>
+  
+
+  
+  
